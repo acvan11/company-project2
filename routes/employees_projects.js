@@ -95,6 +95,18 @@ router.put('/', (req,res) => {
 
 // END
 
-
+//Create table "employees_projects" in MySql
+// CREATE TABLE IF NOT EXISTS employees_projects (
+// 	employee_id INT NOT NULL,
+//     project_id INT NOT NULL,
+//     FOREIGN KEY (employee_id)
+//     REFERENCES employees (employee_id)
+//     ON UPDATE CASCADE
+//    ON DELETE RESTRICT,
+//     FOREIGN KEY (project_id)
+//     REFERENCES projects (project_id)
+//     ON UPDATE CASCADE
+//    ON DELETE RESTRICT
+// );
 
 module.exports = router;

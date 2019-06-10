@@ -124,4 +124,13 @@ router.put('/', (req, res) => {
 // 	SELECT _employee_id AS 'employee_id';
 // END
 
+// Create table "employees" in MySql
+// CREATE TABLE IF NOT EXISTS employees (	
+// 	employee_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+//     employee_name VARCHAR(255) NOT NULL,
+//     age INT, 
+//     gender VARCHAR(10),
+//     employment_date DATE
+// );
+
 module.exports = router;
