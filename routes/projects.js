@@ -140,6 +140,8 @@ router.put("/", (req, res) => {
 
 // END
 
+// **********************************************
+
 //Create table "projects" in MySQL
 // CREATE TABLE IF NOT EXISTS projects (
 // 	project_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,

@@ -124,6 +124,8 @@ router.put('/', (req, res) => {
 // 	SELECT _employee_id AS 'employee_id';
 // END
 
+// *************************************************
+
 // Create table "employees" in MySql
 // CREATE TABLE IF NOT EXISTS employees (	
 // 	employee_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,

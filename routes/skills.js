@@ -98,7 +98,7 @@ router.delete('/:id', (req, res) => {
 	});
 })
 
-// PROCEDURE SkillAddOrEdit
+// PROCEDURE SkillAddOrEdit in order to INSERT/EDIT a skill in table "skills"
 // CREATE DEFINER=`root`@`localhost` PROCEDURE `SkillAddOrEdit`(
 // 	IN _skill_id INT,
 //     IN _skill_name VARCHAR(20)
@@ -120,6 +120,8 @@ router.delete('/:id', (req, res) => {
         
 
 // END
+
+// *****************************************************
 
 //create table "skills" in MySQL
 // CREATE TABLE IF NOT EXISTS skills (
