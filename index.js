@@ -5,6 +5,7 @@ var projectRoute = require('./routes/projects');
 var empProjRoute = require('./routes/employees_projects');
 var skillsRoute = require('./routes/skills');
 var emp_skillRoute = require('./routes/employees_skills');
+var pro_skiRoute = require('./routes/projects_skills');
 
 
 var app = express();
@@ -13,6 +14,7 @@ app.use('/projects', projectRoute);
 app.use('/employees_projects', empProjRoute);
 app.use('/skills', skillsRoute);
 app.use('/employees_skills', emp_skillRoute);
+app.use('/projects_skills', pro_skiRoute);
 
 app.get('/', (req, res) => {
 	res.send('hello');

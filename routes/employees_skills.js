@@ -70,7 +70,7 @@ router.delete('/:id', (req, res) => {
 	});
 })
 
-// PROCEDURE "EmpSkiAddOrEdit" in order
+// PROCEDURE "EmpSkiAddOrEdit" in order to INSERT/EDIT a row in MySQL
 // CREATE DEFINER=`root`@`localhost` PROCEDURE `SkillAddOrEdit`(
 // 	IN _skill_id INT,
 //     IN _skill_name VARCHAR(20)
