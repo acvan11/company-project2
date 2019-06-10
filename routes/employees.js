@@ -38,7 +38,21 @@ FROM projects, (SELECT project_id FROM employees_projects WHERE employee_id =' +
 		res.send(err);
 	}
 });
-})
+});
+
+// GET all skills that one employee knows
+router.get('/:id/skills', (req, res) => {
+	mysqlConnection.query('SELECT skills.skill_name \
+		FROM skills , (SELECT skill_id FROM employees_skills WHERE employee_id = '
+		+ [req.params.id] + ') emp_skill WHERE skills.skill_id = emp_skill.skill_id',
+		(err, rows, fields) => {
+			if (!err) {
+				res.send(rows);
+			}else {
+				res.send(err);
+			}
+		});
+});
 
 // DELETE an employee
 router.delete('/:id', (req, res) => {

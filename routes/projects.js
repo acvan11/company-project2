@@ -31,6 +31,34 @@ router.get("/:id", (req, res) => {
 	);
 });
 
+// GET all employees from one project
+router.get('/:id/employees', (req, res) => {
+	mysqlConnection.query(
+		'SELECT employee_name \
+		FROM employees, (SELECT employee_id FROM employees_projects WHERE project_id = ' + [req.params.id] +
+		') p WHERE p.employee_id = employees.employee_id', (err, rows, fields) => {
+			if(!err){
+				res.send(rows);
+			} else {
+				res.send(err);
+			}
+	});
+});
+
+// GET all skills that the project uses
+router.get('/:id/skills', (req, res) => {
+	mysqlConnection.query('SELECT skills.skill_name \
+		FROM skills , (SELECT skill_id FROM projects_skills WHERE project_id = '
+		+ [req.params.id] + ') pro_skill WHERE skills.skill_id = pro_skill.skill_id', 
+		(err, rows, fields) => {
+			if (!err) {
+				res.send(rows);
+			}else {
+				res.send(err);
+			}
+		});
+});
+
 // DELETE one project
 router.delete("/:id", (req, res) => {
 	mysqlConnection.query(
