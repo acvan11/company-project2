@@ -18,7 +18,7 @@ router.get('/', (req, res)=>{
 
 // GET one employee
 router.get('/:id', (req, res)=> {
-	mysqlConnection.query('SELECT * FROM employees WHERE employee_id = ?', [req.params.id], (err, rows, fields) => {
+	mysqlConnection.query('SELECT * FROM employees WHERE employee_id = ' + [req.params.id], (err, rows, fields) => {
 		if (!err) {
 			res.send(rows);
 		}else {
@@ -26,6 +26,19 @@ router.get('/:id', (req, res)=> {
 		}
 	});
 });
+
+// GET all projects of one employee
+router.get('/:id/projects', (req, res) => {
+	mysqlConnection.query('SELECT project_name \
+FROM projects, (SELECT project_id FROM employees_projects WHERE employee_id =' + [req.params.id] +
+') e WHERE e.project_id = projects.project_id', (err, rows, fields) => {
+	if (!err) {
+		res.send(rows);
+	}else {
+		res.send(err);
+	}
+});
+})
 
 // DELETE an employee
 router.delete('/:id', (req, res) => {
